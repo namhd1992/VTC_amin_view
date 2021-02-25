@@ -1,0 +1,18 @@
+div.dataTables_wrapper div.dataTables_filter label {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+table.dataTable tbody td,
+table.dataTable tbody th {
+    border: none;
+    padding: 0;
+}
+
+.mt-comments .mt-comment .mt-comment-img>img {
+    height: 50px;
+}
+
+.mt-children {
+    padding-left: 50px;
+}

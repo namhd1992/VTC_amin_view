@@ -1,0 +1,39 @@
+.current_channels {
+    border: none;
+    box-shadow: none;
+}
+
+.modal.fade.in {
+    margin-top: 0 !important;
+    top: 1%;
+}
+
+.area_add_edit_item_desc {
+    width: 100%;
+    min-height: 200px;
+}
+
+.btn_add_new_item {
+    z-index: 10;
+    position: relative;
+}
+
+#page_datatable_wrapper {
+    overflow: hidden;
+}
+
+#page_datatable_wrapper th {}
+
+#page_datatable_wrapper td {
+    font-size: 14px;
+}
+
+.group_condition {
+    display: none;
+}
+
+textarea {
+    resize: none;
+    width: 100%;
+    min-height: 200px;
+}

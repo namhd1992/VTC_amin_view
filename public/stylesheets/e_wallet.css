@@ -1,0 +1,100 @@
+.current_channels {
+    border: none;
+    box-shadow: none;
+}
+
+textarea {
+    resize: none;
+    width: 100%;
+    min-height: 100px;
+}
+
+.lb_cb_active {
+    color: forestgreen;
+}
+
+.lb_cb_deactive {
+    color: red;
+}
+
+.form-body {
+    marin-bottom: 10px;
+    overflow: visible;
+}
+
+.table_transfer_fee td {
+    vertical-align: middle !important;
+    text-align: center !important;
+    padding: 2px;
+}
+
+.table_transfer_fee th {
+    vertical-align: middle !important;
+    text-align: center !important;
+}
+
+.table_transfer_fee input {
+    text-align: center !important;
+}
+
+.table_transfer_fee .btn_transfer_fee_remove {
+    color: red;
+}
+
+.table_deposit td {
+    vertical-align: middle !important;
+    text-align: center !important;
+    padding: 2px;
+}
+
+.table_deposit th {
+    vertical-align: middle !important;
+    text-align: center !important;
+}
+
+.table_deposit input {
+    text-align: center !important;
+}
+
+.table_deposit .btn_deposit_remove {
+    color: red;
+}
+
+
+/* Tooltip container */
+
+.tooltip_help {
+    position: relative;
+    display: inline-block;
+    padding: 2px 8px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 100px !important;
+    cursor: pointer;
+    /* If you want dots under the hoverable text */
+}
+
+
+/* Tooltip text */
+
+.tooltip_help .tooltiptext_help {
+    visibility: hidden;
+    width: 320px;
+    background-color: rgba(0, 0, 0, .7);
+    color: #fff;
+    text-align: left;
+    padding: 10px;
+    border-radius: 6px;
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    right: 105%;
+    font-size: 14px;
+}
+
+
+/* Show the tooltip text when you mouse over the tooltip container */
+
+.tooltip_help:hover .tooltiptext_help {
+    visibility: visible;
+}

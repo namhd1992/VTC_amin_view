@@ -1,0 +1,397 @@
+<div class="page-sidebar-wrapper">
+	<div class="page-sidebar navbar-collapse collapse">
+		<ul class="page-sidebar-menu" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+			<li class="<% if(menu == 'home'){ %>active open<% } %> home">
+				<a class="">
+					<i class="icon-home"></i>
+					<span class="title">Home</span>
+					<span class="arrow <% if(menu == 'home'){ %>open<% } %>"></span>
+				</a>
+				<ul class="sub-menu">
+					<li class="nav-item nav_bar_dashboard start <% if(sub_menu == 'dashboard'){ %>active open<% } %>">
+						<a href="./" class="nav-link ">
+							<i class="icon-speedometer"></i>
+							<span class="title">Dashboard</span>
+						</a>
+					</li>
+					<li class="nav-item nav_bar_admin_setting start <% if(sub_menu == 'admin_setting'){ %>active open<% } %>">
+						<a href="./admin_setting" class="nav-link ">
+							<i class="icon-settings"></i>
+							<span class="title">Settings</span>
+						</a>
+					</li>
+					<!-- <li class="nav-item  nav_bar_push_notif <% if(sub_menu == 'push_notif'){ %>active open<% } %>">
+						<a href="push_notif" class="nav-link">
+							<i class="icon-bell"></i>
+							<span class="title">Push Notification</span>
+						</a>
+					</li> -->
+					<!-- <li class="nav-item nav_bar_landing_page <% if(sub_menu == 'landing_page'){ %>active open<% } %>">
+						<a href="landing_page" class="nav-link">
+							<i class="icon-diamond"></i>
+							<span class="title">Landing Page</span>
+						</a>
+					</li> -->
+					<!-- <li class="nav-item nav_bar_qrcode <% if(sub_menu == 'qrcode'){ %>active open<% } %>">
+						<a href="qrcode" class="nav-link">
+							<i class="icon-frame"></i>
+							<span class="title">QR code</span>
+						</a>
+					</li> -->
+				</ul>
+			</li>
+
+			<li class="<% if(menu == 'role_manager'){ %>active open<% } %> permissions_manager">
+				<a class="">
+					<i class="icon-shield"></i>
+					<span class="title">Permissions</span>
+					<span class="arrow <% if(menu == 'game_list'){ %>open<% } %>"></span>
+				</a>
+				<ul class="sub-menu">
+					<li class="nav-item  nav_bar_users_list <% if(sub_menu == 'users_list'){ %>active open<% } %>">
+						<a href="users_list" class="nav-link">
+							<i class="icon-users"></i>
+							<span class="title">Users</span>
+						</a>
+					</li>
+					<li class="nav-item nav_bar_roles <% if(sub_menu == 'roles'){ %>active open<% } %>">
+						<a href="roles" class="nav-link">
+							<i class="icon-eye"></i>
+							<span class="title">Roles</span>
+						</a>
+					</li>
+				</ul>
+			</li>
+
+			<hr style="border: 1px solid #DDD;width: 80%;margin: 5px 20px 5px 20px;">
+
+			<li class="<% if(menu == 'game_list'){ %>active open<% } %> game_manager">
+				<a class="">
+					<i class="icon-game-controller"></i>
+					<span class="title">Games</span>
+					<span class="arrow <% if(menu == 'game_list'){ %>open<% } %>"></span>
+				</a>
+				<ul class="sub-menu">
+					<li class="nav-item nav_bar_game_list start <% if(sub_menu == 'game_list_content'){ %>active open<% } %>">
+						<a href="game_list" class="nav-link">
+							<i class="icon-speedometer"></i>
+							<span class="title">Quản Lý Game</span>
+						</a>
+					</li>
+					<li class="nav-item nav_bar_tag_list start <% if(sub_menu == 'tag_list'){ %>active open<% } %>">
+						<a href="tag_list" class="nav-link">
+							<i class="icon-tag"></i>
+							<span class="title">Tag List</span>
+						</a>
+					</li>
+					<li class="nav-item nav_bar_event_game start <% if(sub_menu == 'event_game'){ %>active open<% } %>">
+						<a href="event_game" class="nav-link">
+							<i class="icon-fire"></i>
+							<span class="title">Event Game</span>
+						</a>
+					</li>
+					<li class="nav-item nav_bar_event_game start <% if(sub_menu == 'game_ranking'){ %>active open<% } %>">
+						<a href="" class="nav-link">
+							<i class="icon-fire"></i>
+							<span class="title">BXH Game</span>
+							<span class="arrow <% if(sub_menu == 'game_ranking'){ %>open<% } %>"></span>
+						</a>
+						<ul class="sub-menu">
+							<li class="nav-item nav_bar_lucky_setting start <% if(locals.sub_sub_menu && sub_sub_menu == 'game_ranking'){ %>active open<% } %>">
+								<a href="game_ranking" class="nav-link ">
+									<i class="icon-settings"></i>
+									<span class="title">Quản lý BXH Game</span>
+								</a>
+							</li>
+							<li class="nav-item nav_bar_spins start <% if(locals.sub_sub_menu && sub_sub_menu == 'game_ranking_report'){ %>active open<% } %>">
+								<a href="game_ranking_report" class="nav-link ">
+									<i class="icon-graph"></i>
+									<span class="title">Report BXH Game</span>
+								</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+
+			<li class="<% if(menu == 'mission'){ %>active open<% } %> mission_manager">
+				<a class="">
+					<i class="icon-target"></i>
+					<span class="title">Missions</span>
+					<span class="arrow <% if(menu == 'simba_web'){ %>open<% } %>"></span>
+				</a>
+				<ul class="sub-menu">
+					<li class="nav-item nav_bar_mission start <% if(sub_menu == 'lead_mission'){ %>active open<% } %>">
+						<a href="mission" class="nav-link">
+							<i class="icon-speedometer"></i>
+							<span class="title">Quản Lý Mission</span>
+						</a>
+					</li>
+					
+					<li class="nav-item nav_bar_splay_card start <% if(sub_menu == 'splay_card'){ %>active open<% } %>">
+						<a href="splay_card" class="nav-link">
+							<i class="icon-credit-card"></i>
+							<span class="title">Splay Card</span>
+						</a>
+					</li>
+				</ul>
+			</li>
+
+			<!-- <li class="<% if(menu == 'shop'){ %>active open<% } %> shoping_manager">
+				<a class="">
+					<i class="icon-basket"></i>
+					<span class="title">Shop</span>
+					<span class="arrow <% if(menu == 'shop'){ %>open<% } %>"></span>
+				</a>
+				<ul class="sub-menu">
+					<li class="nav-item nav_bar_shop start <% if(sub_menu == 'shop'){ %>active open<% } %>">
+						<a href="shop" class="nav-link">
+							<i class="icon-speedometer"></i>
+							<span class="title">Quản Lý Shop</span>
+						</a>
+					</li>
+					<li class="nav-item nav_bar_shop_item start <% if(sub_menu == 'shop_item'){ %>active open<% } %>">
+						<a href="shop_item" class="nav-link">
+							<i class="icon-handbag"></i>
+							<span class="title">Item Shop</span>
+						</a>
+					</li>
+					<li class="nav-item nav_bar_shop_promotion start <% if(sub_menu == 'shop_promotion'){ %>active open<% } %>">
+						<a href="shop_promotion" class="nav-link">
+							<i class="icon-calendar"></i>
+							<span class="title">Promotion</span>
+						</a>
+					</li>
+					<li class="nav-item nav_bar_shop_report start <% if(sub_menu == 'shop_report'){ %>active open<% } %>">
+						<a href="shop_report" class="nav-link">
+							<i class="icon-wrench"></i>
+							<span class="title">Report</span>
+						</a>
+					</li>
+				</ul>
+			</li> -->
+			
+			<!-- <li class="<% if(menu == 'auction'){ %>active open<% } %> auction_manager">
+				<a class="">
+					<i class="icon-handbag"></i>
+					<span class="title">Auction</span>
+					<span class="arrow <% if(menu == 'auction'){ %>open<% } %>"></span>
+				</a>
+				<ul class="sub-menu">
+					<li class="nav-item nav_bar_auction start <% if(sub_menu == 'auction'){ %>active open<% } %>">
+						<a href="auction" class="nav-link">
+							<i class="icon-speedometer"></i>
+							<span class="title">Quản Lý Aution</span>
+						</a>
+					</li>
+					<li class="nav-item nav_bar_auction_report start <% if(sub_menu == 'auction_report'){ %>active open<% } %>">
+						<a href="auction_report" class="nav-link">
+							<i class="icon-graph"></i>
+							<span class="title">Report</span>
+						</a>
+					</li>
+				</ul>
+			</li> -->
+
+			<!-- <li class="<% if(menu == 'giftcode'){ %>active open<% } %> giftcode_manager">
+				<a class="">
+					<i class="icon-present"></i>
+					<span class="title">Giftcode</span>
+					<span class="arrow <% if(menu == 'giftcode'){ %>open<% } %>"></span>
+				</a>
+				<ul class="sub-menu">
+					<li class="nav-item  nav_bar_giftcode_events <% if(sub_menu == 'giftcode_events'){ %>active open<% } %>">
+						<a href="giftcode_events" class="nav-link">
+							<i class="icon-speedometer"></i>
+							<span class="title">Quản Lý Event</span>
+						</a>
+					</li>
+
+				</ul>
+			</li>			 -->
+
+			<li class="<% if(menu == 'mini_game'){ %>active open<% } %> mini_game_manager">
+				<a class="">
+					<i class="icon-control-play"></i>
+					<span class="title">Mini Game</span>
+					<span class="arrow <% if(menu == 'mini_game'){ %>open<% } %>"></span>
+				</a>
+				<ul class="sub-menu">
+					<li class="<% if(sub_menu == 'lucky_spin'){ %>active open<% } %> lucky_setting">
+						<a class="">
+							<i class="icon-disc"></i>
+							<span class="title">Lucky Spin</span>
+							<span class="arrow <% if(sub_menu == 'lucky_spin'){ %>open<% } %>"></span>
+						</a>
+						<ul class="sub-menu">
+							<li class="nav-item nav_bar_lucky_setting start <% if(locals.sub_sub_menu && sub_sub_menu == 'lucky_setting'){ %>active open<% } %>">
+								<a href="lucky_setting" class="nav-link ">
+									<i class="icon-settings"></i>
+									<span class="title">Setting</span>
+								</a>
+							</li>
+							<li class="nav-item nav_bar_spins start <% if(locals.sub_sub_menu && sub_sub_menu == 'spins'){ %>active open<% } %>">
+								<a href="spins" class="nav-link ">
+									<i class="icon-disc"></i>
+									<span class="title">Spins</span>
+								</a>
+							</li>
+							<li class="nav-item  nav_bar_spin_items <% if(locals.sub_sub_menu && sub_sub_menu == 'spin_items'){ %>active open<% } %>">
+								<a href="spin_items" class="nav-link">
+									<i class="icon-grid"></i>
+									<span class="title">Spin Items</span>
+								</a>
+							</li>
+							<li class="nav-item  nav_bar_spin_gifts <% if(locals.sub_sub_menu && sub_sub_menu == 'spin_gifts'){ %>active open<% } %>">
+								<a href="spin_gifts" class="nav-link">
+									<i class="icon-present"></i>
+									<span class="title">Spin Gifts</span>
+								</a>
+							</li>
+							<li class="nav-item  nav_bar_spin_report <% if(locals.sub_sub_menu && sub_sub_menu == 'spin_result_report'){ %>active open<% } %>">
+								<a href="spin_result_report" class="nav-link">
+									<i class="icon-graph"></i>
+									<span class="title">Spin Result Report</span>
+								</a>
+							</li>
+							<li class="nav-item  nav_bar_spin_purchase <% if(locals.sub_sub_menu && sub_sub_menu == 'spin_purchase'){ %>active open<% } %>">
+								<a href="spin_purchase" class="nav-link">
+									<i class="icon-graph"></i>
+									<span class="title">Spin purchase history</span>
+								</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</li>		
+			
+			<!-- <li class="<% if(menu == 'checkin'){ %>active open<% } %> checkin_manager">
+				<a class="">
+					<i class="icon-user-following"></i>
+					<span class="title">Check-in</span>
+					<span class="arrow <% if(menu == 'checkin'){ %>open<% } %>"></span>
+				</a>
+				<ul class="sub-menu">
+					<li class="nav-item nav_bar_checkin start <% if(sub_menu == 'lead_checkin'){ %>active open<% } %>">
+						<a href="checkin" class="nav-link">
+							<i class="icon-speedometer"></i>
+							<span class="title">Quản Lý Check-in</span>
+						</a>
+					</li>
+				</ul>
+			</li> -->
+
+			<!-- <li class="<% if(menu == 'news'){ %>active open<% } %> article_manager">
+				<a class="">
+					<i class="icon-book-open"></i>
+					<span class="title">News</span>
+					<span class="arrow <% if(menu == 'news'){ %>open<% } %>"></span>
+				</a>
+				<ul class="sub-menu">
+					<li class="nav-item  nav_bar_category <% if(sub_menu == 'category'){ %>active open<% } %>">
+						<a href="category" class="nav-link">
+							<i class="icon-list"></i>
+							<span class="title">Category</span>
+						</a>
+					</li>
+					<li class="nav-item  nav_bar_channels <% if(sub_menu == 'channels'){ %>active open<% } %>">
+						<a href="channels" class="nav-link">
+							<i class="icon-feed"></i>
+							<span class="title">Channels</span>
+						</a>
+					</li>
+					<li class="nav-item  nav_bar_tags <% if(sub_menu == 'tags'){ %>active open<% } %>">
+						<a href="tags" class="nav-link">
+							<i class="icon-tag"></i>
+							<span class="title">Tags</span>
+						</a>
+					</li>
+					<li class="nav-item  nav_bar_auto_following <% if(sub_menu == 'auto_following'){ %>active open<% } %>">
+						<a href="auto_following" class="nav-link">
+							<i class="icon-screen-smartphone"></i>
+							<span class="title">Auto Following</span>
+						</a>
+					</li>
+					<li class="nav-item  nav_bar_articles <% if(sub_menu == 'articles'){ %>active open<% } %>">
+						<a href="articles" class="nav-link">
+							<i class="icon-docs"></i>
+							<span class="title">Articles</span>
+						</a>
+					</li>
+					<li class="nav-item  nav_bar_comments <% if(sub_menu == 'comments'){ %>active open<% } %>">
+						<a href="comments" class="nav-link">
+							<i class="icon-bubbles"></i>
+							<span class="title">Comments</span>
+						</a>
+					</li>
+					<li class="nav-item  nav_bar_search_history <% if(sub_menu == 'search_history'){ %>active open<% } %>">
+						<a href="search_history" class="nav-link">
+							<i class="icon-magnifier"></i>
+							<span class="title">Search History</span>
+						</a>
+					</li>
+					<li class="nav-item  nav_bar_splay_articles <% if(sub_menu == 'splay_articles'){ %>active open<% } %>">
+						<a href="splay_articles" class="nav-link">
+							<i class="icon-docs"></i>
+							<span class="title">Splay Articles</span>
+						</a>
+					</li>
+				</ul>
+				<hr style="border: 1px solid #DDD;width: 80%;margin: 5px 20px 5px 20px;">
+			</li> -->
+
+			<li class="<% if(menu == 'tool_giftcode'){ %>active open<% } %> tool_giftcode_manager">
+				<a class="">
+					<i class="icon-present"></i>
+					<span class="title">Tool giftcode</span>
+					<span class="arrow <% if(menu == 'tool_giftcode'){ %>open<% } %>"></span>
+				</a>
+				<ul class="sub-menu">
+					<li class="nav-item nav_bar_tool_giftcode start <% if(sub_menu == 'tool_giftcode'){ %>active open<% } %>">
+						<a href="tool_giftcode" class="nav-link">
+							<i class="icon-link"></i>
+							<span class="title">Tool Giftcode</span>
+						</a>
+					</li>
+					<li class="nav-item nav_bar_tool_giftcode_report start <% if(sub_menu == 'tool_giftcode_report'){ %>active open<% } %>">
+						<a href="tool_giftcode_report" class="nav-link">
+							<i class="icon-graph"></i>
+							<span class="title">Report</span>
+						</a>
+					</li>
+				</ul>
+			</li>
+
+			<!-- <hr style="border: 1px solid #DDD;width: 80%;margin: 5px 20px 5px 20px;"> -->
+
+			<!-- <li class="<% if(menu == 'simba_web'){ %>active open<% } %> splay_setting">
+				<a class="">
+					<i class="icon-wrench"></i>
+					<span class="title">Settings</span>
+					<span class="arrow <% if(menu == 'simba_web'){ %>open<% } %>"></span>
+				</a>
+				<ul class="sub-menu">
+					<li class="nav-item nav_bar_carousel start <% if(sub_menu == 'carousel'){ %>active open<% } %>">
+						<a href="carousel" class="nav-link">
+							<i class="icon-picture"></i>
+							<span class="title">Carousel</span>
+						</a>
+					</li>
+					<li class="nav-item nav_bar_help_splay start <% if(sub_menu == 'help_splay'){ %>active open<% } %>">
+						<a href="help_splay" class="nav-link">
+							<i class="icon-picture"></i>
+							<span class="title">Help splay</span>
+						</a>
+					</li>
+					<li class="nav-item nav_bar_vip_splay start <% if(sub_menu == 'vip_splay'){ %>active open<% } %>">
+						<a href="vip_splay" class="nav-link">
+							<i class="icon-picture"></i>
+							<span class="title">Vip splay</span>
+						</a>
+					</li>
+				</ul>
+			</li> -->
+			
+		</ul>
+	</div>
+</div>

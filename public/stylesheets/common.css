@@ -1,0 +1,135 @@
+.current_channels {
+    border: none;
+    box-shadow: none;
+}
+
+.area_add_edit_item_desc {
+    width: 100%;
+    min-height: 200px;
+}
+
+.btn_add_new_item {
+    z-index: 10;
+    position: relative;
+}
+
+#page_datatable_wrapper {
+    overflow: hidden;
+}
+
+#page_datatable_wrapper th {}
+
+#page_datatable_wrapper td {
+    font-size: 14px;
+}
+
+textarea {
+    resize: none;
+}
+
+.txt_add_edit_item_des {
+    min-height: 150px;
+}
+
+.appname_group {
+    display: none;
+}
+
+.share_group {
+    display: none;
+}
+
+.form_datetime .input-group-btn {
+    background-color: lightgrey;
+}
+
+.image_item{
+	padding: 10px;
+	box-sizing: border-box;
+}
+
+.image_item img{
+	height: 128px;
+	min-width: 100px;
+	margin: 5px;
+}
+
+.list {
+    background-color: #478BFF;
+    text-align: center;
+    cursor: pointer;
+    font-family: Geneva, Arial, Helvetica, sans-serif;
+    border: 1px solid gray;
+}
+
+#items .ui-selected {
+    background: red;
+    color: white;
+    font-weight: bold;
+}
+
+#items {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+#items li {
+    float: left;
+    margin: 5px;
+    padding: 5px;
+    height: 30px;
+}
+
+.highlight {
+    overflow: hidden;
+    font-weight: bold;
+    background-color: lightblue;
+    height: 30px;
+    width: 100px;
+    padding: 5px;
+    white-space: nowrap;
+}
+
+.txt_add_edit_package_gift{
+    margin-bottom: 10px;
+}
+
+.bootstrap-switch{
+    /* width: 90px !important; */
+    height: 35px !important;
+    border-radius: 20px !important;
+    bottom: 8px;
+}
+
+.bootstrap-switch-handle-on, .bootstrap-switch-label, .bootstrap-switch-handle-off{
+    border-radius: 16px !important;
+    font-weight: bold;
+}
+
+.bootstrap-switch-handle-on,.bootstrap-switch-handle-off{
+    background: white !important;
+    padding: 6px !important;
+    width: 42px !important;
+}
+
+.bootstrap-switch-label{
+    background: #36c6d3 !important;
+    width: 55px !important;
+}
+
+.bootstrap-switch-handle-on{
+    color: #00CD00 !important;
+}
+
+.bootstrap-switch-handle-off{
+    color: #CD2626 !important;
+}
+
+.logo_img {
+    width: 72px;
+    height: 72px;
+    background-size: cover;
+    background-position: center;
+}

@@ -1,0 +1,41 @@
+table.table-bordered.dataTable th,
+table.table-bordered.dataTable td {
+    font-size: 12px;
+    text-align: left;
+    padding-left: 10px;
+    padding-right: 10px;
+    vertical-align: top;
+}
+
+div.dataTables_wrapper div.dataTables_filter label {
+    margin-top: -70px;
+    margin-bottom: 10px;
+}
+
+.title_content {}
+
+.btn_edit_item {
+    font-size: 12px;
+}
+
+.area_add_edit_item_title {
+    width: 100%;
+    max-width: 100%;
+}
+
+div.dataTables_wrapper img {
+    width: 100%;
+}
+
+.filter_link {
+    border-radius: 5px !important;
+    padding: 2px;
+}
+
+.filter_link_active {
+    background: rgba(100, 100, 100, 0.2) !important;
+}
+
+.caption {
+    margin-right: 20px;
+}

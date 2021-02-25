@@ -1,0 +1,24 @@
+.current_channels {
+    border: none;
+    box-shadow: none;
+}
+
+.modal.fade.in {}
+
+.area_add_edit_item_desc {
+    width: 100%;
+    min-height: 200px;
+}
+
+.btn_add_new_item {
+    z-index: 10;
+    position: relative;
+}
+
+#page_datatable_wrapper {
+    margin-top: 0px;
+}
+
+#page_datatable_wrapper th {}
+
+#page_datatable_wrapper td {}

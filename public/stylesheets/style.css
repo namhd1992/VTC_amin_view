@@ -1,0 +1,49 @@
+div.dataTables_wrapper div.dataTables_filter {
+    margin-left: 0px;
+    float: right;
+}
+
+div.dataTables_wrapper div.dataTables_filter input {
+    margin-left: 0px !important;
+}
+
+body {
+    background: #263238;
+}
+
+.page-header {
+    background: #3B3F51;
+    border-bottom: 1px solid #e9ecf3;
+}
+
+.page-head .page-title>h1 {
+	color: #fff;
+}
+
+.breadcrumb a{
+	color:white;
+}
+
+.top-menu .username {
+	color: #2f353b !important;
+}
+
+.page-content-wrapper .page-content{
+	padding: 10px 20px 0px 20px;
+}
+
+.page-header, .page-sidebar, .page-sidebar-wrapper{
+	z-index: 9999 !important;
+}
+
+.page-sidebar-wrapper{
+	z-index:  999 !important;
+}
+
+.page-sidebar{
+	z-index: 999 !important;
+}
+
+.page-footer .page-footer-inner{
+	color: white !important;
+}

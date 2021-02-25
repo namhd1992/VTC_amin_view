@@ -1,0 +1,303 @@
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+
+<head>
+	<% include ../partials/head_of_head %>
+		<!--PLUGIN STYLES-->
+		<link href="../assets/global/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/global/plugins/typeahead/typeahead.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/global/plugins/datatables/datatables.min.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css" rel="stylesheet" type="text/css"
+		/>
+		<link href="../assets/global/plugins/morris/morris.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/global/plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/global/plugins/bootstrap-modal/css/bootstrap-modal.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/global/plugins/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/global/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/global/plugins/select2/css/select2-bootstrap.min.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css" rel="stylesheet" type="text/css"
+		/>
+		<link href="../assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css"
+		/>
+		<link href="../assets/global/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css" rel="stylesheet" type="text/css"
+		/>
+		<link href="../assets/global/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css"
+		/>
+		<link href="../assets/global/plugins/clockface/css/clockface.css" rel="stylesheet" type="text/css" />
+		<!--CUSTOM STYLE-->
+		<link href="../stylesheets/auction.min.css" rel="stylesheet" type="text/css" />
+		<link rel="shortcut icon" href="favicon.ico" /> </head>
+
+<body class="page-container-bg-solid page-header-fixed page-sidebar-closed-hide-logo">
+	<% include ../partials/header %>
+		<!-- BEGIN HEADER & CONTENT DIVIDER -->
+		<div class="clearfix"> </div>
+		<!-- END HEADER & CONTENT DIVIDER -->
+		<!-- BEGIN CONTAINER -->
+		<div class="page-container">
+			<% include ../partials/side_bar %>
+				<!-- BEGIN CONTENT -->
+				<div class="page-content-wrapper">
+					<!-- BEGIN CONTENT BODY -->
+					<div class="page-content">
+						<% include ../partials/page_title %>
+							<!-- BEGIN PAGE BREADCRUMB -->
+							<ul class="page-breadcrumb breadcrumb">
+								<li>
+								</li>
+							</ul>
+							<div class="portlet light bordered">
+								<div class="portlet-title">
+									<div class="caption font-dark">
+										<i class="icon-settings font-dark"></i>
+										<span class="caption-subject bold uppercase">Auction</span>
+									</div>
+								</div>
+								<div class="portlet-body">
+									<div class="search_wrap">
+										<div class="input-group">
+											<button class="btn sbold green btn_add_new_item"> Add New
+												<i class="fa fa-plus"></i>
+											</button>
+										</div>
+										<div class="input-group">
+											<input type="text" class="search_input" />
+										</div>
+										<div class="input-group">
+											<button class="search_submit btn btn-success">Apply</button>
+											<button class="search_clear btn" style="margin-left:10px;">Clear</button>
+										</div>
+									</div>
+									<table class="table table-striped table-bordered table-hover table-checkable order-column" id="page_datatable"></table>
+									<div class="datatable_paging"></div>
+								</div>
+								<!--confirm modal-->
+								<div id="modal_confirm" class="modal fade modal-sm" tabindex="-1" data-width="420">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+										<h4 class="modal-title"></h4>
+									</div>
+									<div class="modal-body">
+										Are you sure?
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn green btn_confirm_yes yes_rollback">Yes</button>
+										<button type="button" data-dismiss="modal" class="btn btn-outline dark cancel_rollback">No</button>
+									</div>
+								</div>
+
+								<!--admin backup auction modal-->
+								<div id="modal_gift_auction" class="modal fade modal-sm" tabindex="-1" data-width="420">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+										<h4 style="text-align: center;" class="modal-title">THE WINNER</h4>
+									</div>
+									<div class="modal-body">
+										<p>User Name : <span style="margin-left:4%;color:green" id = "winner_user_name"></span></p>
+										<p>Email : <span style="margin-left:14%;color:green" id = "winner_email"></span></p>
+										<p>SĐT : <span style="margin-left:17%;color:green" id= "winner_phone"></span></p>
+										<p>Amount : <span style="margin-left:10%;color:green" id = "winner_amount"></span></p>
+										<br/>
+										<h4 style="text-align: center;" >PHẦN THƯỞNG ĐẤU GIÁ</h4>
+										<p id = auction_product></p>
+									</div>
+									<div class="modal-footer active-gift">
+										<button type="button" class="btn green btn_give_yes">Trao Phần Thưởng</button>
+										<button type="button" data-dismiss="modal" class="btn btn_rollback dark">Trả thịt</button>
+									</div>
+									<div class="modal-footer success-gift">
+										<p style="text-align:center;margin:5px;color:green">SỰ KIỆN ĐÃ HOÀN THÀNH</p>
+									</div>
+								</div>
+								<!--modal add edit-->
+								<div id="modal_add_edit" class="modal fade modal-scroll" tabindex="-1" data-width="70%">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+										<h4 class="modal-title">Create New Item</h4>
+									</div>
+									<div class="modal-body">
+										<div class="portlet-body form">
+											<!-- BEGIN FORM-->
+											<div class="form-horizontal modal_add_edit">
+												<div class="form-body">
+													<div class="form-group">
+														<label class="col-md-3 control-label">Name</label>
+														<div class="col-md-6">
+															<input type="text" class="txt_add_edit_item_name form-control" name="name" placeholder="Enter game name">
+															<p class="help-block">Tên đấu giá</p>
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="col-md-3 control-label">Item Name</label>
+														<div class="col-md-6">
+															<input type="text" class="txt_add_edit_item_item_name form-control" name="itemName" placeholder="Enter item name">
+															<p class="help-block">Tên vật phẩm</p>
+														</div>
+													</div>
+													<div class="form-group">
+														<form id="form_upload_image" enctype="multipart/form-data">
+															<label class="col-md-3 control-label">Image Upload</label>
+															<div class="col-md-4">
+																<input type="file" name="file" class="txt_add_edit_item_upload form-control" />
+																<p class="help-block">Ảnh chính hiện ở danh sách</p>
+															</div>
+															<div class="col-md-5">
+																<button type="button" class="btn btn-outline blue btn_modal_upload_image">Upload
+																</button>
+															</div>
+														</form>
+													</div>
+													<div class="form-group">
+														<label class="col-md-3 control-label">Image</label>
+														<div class="col-md-9">
+															<div class="image_item_image"></div>
+														</div>
+													</div>
+													<div class="form-group">
+														<form id="form_upload_list_image" enctype="multipart/form-data">
+															<label class="col-md-3 control-label">Image Upload</label>
+															<div class="col-md-4">
+																<input type="file" name="file" class="txt_add_edit_item_upload form-control" />
+																<p class="help-block">Ảnh chi tiết vật phẩm</p>
+															</div>
+															<div class="col-md-5">
+																<button type="button" class="btn btn-outline blue btn_modal_upload_list_image">Upload
+																</button>
+															</div>
+														</form>
+													</div>
+													<div class="form-group">
+														<label class="col-md-3 control-label">List Image</label>
+														<div class="col-md-9">
+															<div class="image_item_list_image"></div>
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="col-md-3 control-label">Description</label>
+														<div class="col-md-6">
+															<textarea class="txt_add_edit_item_desc form-control" name="description" placeholder="Description"></textarea>
+															<p class="help-block">Mô tả 0 - 200 ký tự</p>
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="col-md-3 control-label">Winning message</label>
+														<div class="col-md-6">
+															<textarea class="txt_add_edit_item_winning_message form-control" name="winningMessage" placeholder="Winning message"></textarea>
+															<p class="help-block">Winning message 0 - 200 ký tự</p>
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="col-md-3 control-label">Type</label>
+														<div class="col-md-6">
+															<select id="single_select_type" class="form-control select2 select_normal">
+																<option value="1">Thường</option>
+																<option value="2">Đấu giá ngược</option>
+															</select>
+															<p class="help-block">Kiểu đấu giá</p>
+														</div>
+													</div>
+
+													<div class="form-group">
+														<label class="col-md-3 control-label">Loại Tiền</label>
+														<div class="col-md-6">
+															<select id="single_select_coin_type" class="form-control select2">
+																<option value="SCOIN" disabled="disabled" >Scoin</option>
+																<option value="XU" disabled="disabled" title="Đang phát triển">Xu</option>
+																<option value="THIT"title="Đang phát triển">Thịt</option>
+															</select>
+															<p class="help-block">Thể loại tiền tệ để mua vật phẩm</p>
+														</div>
+													</div>
+
+													<div class="form-group">
+														<label class="col-md-3 control-label">Start amount</label>
+														<div class="col-md-6">
+															<input type="number" min="0" value="0" class="txt_add_edit_item_start_amount form-control" />
+															<p class="help-block">Giá khởi điểm</p>
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="col-md-3 control-label">Step</label>
+														<div class="col-md-6">
+															<input type="number" min="0" value="0" class="txt_add_edit_item_price_step form-control" />
+															<p class="help-block">Bước giá</p>
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="control-label col-md-3">From date</label>
+														<div class="col-md-6">
+															<div class="input-group date form_datetime" style="max-width:100% !important;border: 1px lightblue solid;">
+																<input type="text" size="16" readonly class="form-control txt_add_edit_item_from_date">
+																<span class="input-group-btn">
+																	<button class="btn default date-set" type="button">
+																		<i class="fa fa-calendar"></i>
+																	</button>
+																</span>
+															</div>
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="control-label col-md-3">To date</label>
+														<div class="col-md-6">
+															<div class="input-group date form_datetime" style="max-width:100% !important;border: 1px lightblue solid;">
+																<input type="text" size="16" readonly class="form-control txt_add_edit_item_to_date">
+																<span class="input-group-btn">
+																	<button class="btn default date-set" type="button">
+																		<i class="fa fa-calendar"></i>
+																	</button>
+																</span>
+															</div>
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="col-md-3 control-label">Status</label>
+														<div class="col-md-4">
+															<select name="status" class="bs-select form-control input-small select_status" data-style=" btn-success">
+																<option value="active">Active</option>
+																<option value="inactive">Inactive</option>
+															</select>
+															<input type="hidden" name="status" value="active" class="hidden_item_status" />
+															<p class="help-block">Để ẩn hoặc hiện trên client</p>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="modal-footer">
+										<button type="button" data-dismiss="modal" class="btn btn-outline dark">Close</button>
+										<button type="button" class="btn green btn_modal_save_new">Add</button>
+										<button type="button" class="btn green btn_modal_save_update">Save Change</button>
+									</div>
+								</div>
+							</div>
+					</div>
+				</div>
+		</div>
+		<% include ../partials/footer %>
+			<% include ../partials/foot_of_foot %>
+				<!--PLUGIN SCRIPTS-->
+				<script src="../assets/global/plugins/moment.min.js" type="text/javascript"></script>
+				<script src="../assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.js" type="text/javascript"></script>
+				<script src="../assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
+				<script src="../assets/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js" type="text/javascript"></script>
+				<script src="../assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
+				<script src="../assets/global/plugins/clockface/js/clockface.js" type="text/javascript"></script>
+				<script src="../assets/global/plugins/bootstrap-modal/js/bootstrap-modalmanager.js" type="text/javascript"></script>
+				<script src="../assets/global/plugins/bootstrap-modal/js/bootstrap-modal.js" type="text/javascript"></script>
+				<script src="../assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js" type="text/javascript"></script>
+				<script src="../assets/global/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.js" type="text/javascript"></script>
+				<script src="../assets/global/plugins/datatables/datatables.min.js" type="text/javascript"></script>
+				<script src="../assets/global/plugins/bootstrap-select/js/bootstrap-select.min.js" type="text/javascript"></script>
+				<script src="../assets/global/plugins/typeahead/handlebars.min.js" type="text/javascript"></script>
+				<script src="../assets/global/plugins/select2/js/select2.full.min.js" type="text/javascript"></script>
+				<!--CUSTOM SCRIPTS-->
+				<script src="../javascripts/auction.min.js" type="text/javascript"></script>
+				<!-- PAGE SCRIPTS -->
+</body>
+
+</html>

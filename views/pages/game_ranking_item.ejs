@@ -1,0 +1,270 @@
+<!--[if IE 8]>
+<html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]>
+<html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+    <!--<![endif]-->
+    <!-- BEGIN HEAD -->
+    
+<head>
+    <% include ../partials/head_of_head %>
+        <!--PLUGIN STYLES-->
+        <link href="../assets/global/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/global/plugins/typeahead/typeahead.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/global/plugins/datatables/datatables.min.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css" rel="stylesheet" type="text/css"
+        />
+        <link href="../assets/global/plugins/morris/morris.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/global/plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/global/plugins/bootstrap-modal/css/bootstrap-modal.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/global/plugins/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/global/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/global/plugins/select2/css/select2-bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css" rel="stylesheet" type="text/css"
+        />
+        <link href="../assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css"
+        />
+        <link href="../assets/global/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css" rel="stylesheet" type="text/css"
+        />
+        <link href="../assets/global/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css"
+        />
+        <link href="../assets/global/plugins/clockface/css/clockface.css" rel="stylesheet" type="text/css" />
+        <!--CUSTOM STYLE-->
+        <link href="../stylesheets/common.min.css" rel="stylesheet" type="text/css" />
+		<link rel="shortcut icon" href="favicon.ico" />
+		<style>
+			.package{
+				margin-bottom: 10px;
+			}
+        </style>
+        <script>
+			var rank_id = "<%= rank_id %>";
+			var game_ranking_id = "<%= game_ranking_id %>";
+        </script>
+</head>
+
+<body class="page-container-bg-solid page-header-fixed page-sidebar-closed-hide-logo">
+        <% include ../partials/header %>
+        <!-- BEGIN HEADER & CONTENT DIVIDER -->
+        <div class="clearfix"></div>
+        <!-- END HEADER & CONTENT DIVIDER -->
+        <!-- BEGIN CONTAINER -->
+        <div class="page-container">
+            <% include ../partials/side_bar %>
+                <!-- BEGIN CONTENT -->
+                <div class="page-content-wrapper">
+                    <!-- BEGIN CONTENT BODY -->
+                    <div class="page-content">
+                        <% include ../partials/page_title %>
+                        <ul class="page-breadcrumb breadcrumb">
+                                <li>
+                                </li>
+                            </ul>
+                            <div class="portlet light bordered">
+                                <div class="portlet-title">
+                                    <div class="caption font-dark">
+                                        <i class="icon-settings font-dark"></i>
+                                        <span class="caption-subject bold uppercase ">
+											<a id="game_ranking_link" href="/game_ranking">BXH GAME</a> >
+											<a id="game_ranking_link" href="/game_ranking_rank?game_ranking_id=<%= game_ranking_id %>">Quản Lý Rank</a> >
+											<span style="color: #36c6d3;"> Quản Lý Phúc Lợi : </span>
+											<span class="rank_name" style="color:#36c6d3;"></span> 
+										</span>
+                                    </div>
+                                </div>
+                                <div class="portlet-body">
+                                    <div class="search_wrap">
+                                        <div class="input-group">
+                                            <button class="btn sbold green btn_add_new_item">
+                                                <i class="fa fa-plus"></i> Add New
+                                            </button>
+                                        </div>
+                                        <div class="input-group">
+                                            <input type="text" class="search_input" />
+                                        </div>
+                                        <div class="input-group">
+                                            <button class="search_submit btn btn-success">Apply</button>
+                                            <button class="search_clear btn" style="margin-left:10px;">Clear</button>
+                                        </div>
+                                    </div>
+                                    <table class="table table-striped table-bordered table-hover table-checkable order-column" id="page_datatable"></table>
+                                    <div class="datatable_paging"></div>
+								</div>
+								
+								<!--confirm modal-->
+								<div id="modal_confirm" class="modal fade modal-sm" tabindex="-1" data-width="420">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+										<h4 class="modal-title"></h4>
+									</div>
+									<div class="modal-body">
+										Are you sure?
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn green btn_confirm_yes">Yes</button>
+										<button type="button" data-dismiss="modal" class="btn btn-outline dark">No</button>
+									</div>
+								</div>
+
+                                <!--modal add edit-->
+								<div id="modal_add_edit" class="modal fade modal-scroll" tabindex="-1" data-width="70%">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+										<h4 class="modal-title">Create New Item</h4>
+									</div>
+									<div class="modal-body">
+										<div class="portlet-body form">
+											<!-- BEGIN FORM-->
+											<form id="add_edit_game_ranking_form" action="#" class="form-horizontal" enctype="multipart/form-data">
+												<div class="form-body">
+													<div class="form-group">
+														<label class="col-md-3 control-label">Name</label>
+														<div class="col-md-7">
+															<input type="text" class="txt_add_edit_item_name form-control" name="name" placeholder="Nhập tên phúc lợi">
+														</div>
+													</div>
+
+                                                    <div class="form-group">
+														<label class="col-md-3 control-label"> Hạng</label>
+														<div class="col-md-7">
+															<span class="rank_name" style="color:#36c6d3; font-size: 20;" ></span>
+														</div>
+                                                    </div>
+                                                    
+                                                    <div class="form-group">
+														<label class="col-md-3 control-label">Icon</label>
+														<div class="col-md-6">
+															<label for="file" style="position: relative;" class="btn yellow">Chọn Ảnh</label>
+															<button type="button" style="margin-left: 30%;" class="btn btn-outline blue btn_modal_upload_image_logo">Upload Icon</button>
+															<input type="file" style="opacity: 0;position: absolute;top:0px;height: 44px;width: 119px" class="txt_add_edit_item_file_logo" />
+															<div class="txt_add_edit_item_image_logo logo_img" style="margin-top: 20px;">
+																<div></div>
+															</div>
+															<p class="help-block">Chọn icon => review => Upload icon => save change</p>
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="col-md-3 control-label">Link Ảnh</label>
+														<div class="col-md-6">
+															<div class="txt_add_edit_item_link_logo view_link" placeholder="Link Image"></div>
+														</div>
+													</div>
+                                                    
+                                                    <div class="form-group">
+														<label class="col-md-3 control-label">Loại phúc lợi</label>
+														<div class="col-md-6">
+															<select id="single_select_item_type" class="form-control select2 select_normal">
+																<option value="0">Chọn loại phúc lợi</option>
+																<option value="GIFTCODE">Giftcode</option>
+																<option value="INGAME">Đồ ingame</option>
+																<option value="REAL">Hiện Vật</option>
+																<option value="TURN_LUCKYSPIN">Lượt chơi event</option>
+																<option value="XU">Xu</option>
+																<option value="SCOIN">Scoin</option>
+																<option value="CARD">Card Scoin</option>
+															</select>
+														</div>
+													</div>
+													
+													<div class="form-group item_content item_description">
+														<label class="col-md-3 control-label">Nội dung</label>
+														<div class="col-md-7">
+															<textarea class="txt_add_edit_item_description form-control" id="description" name="description" placeholder="Nội dung của phúc lợi"></textarea>
+															
+														</div>
+													</div>
+													
+													<div class="form-group item_content item_value">
+														<label class="col-md-3 control-label">Gía trị</label>
+														<div class="col-md-7">
+															<input type="number" class="txt_add_edit_item_value form-control" min="1" >
+															<p class="help-block">Giá trị của phúc lợi</p>
+														</div>
+													</div>
+													
+													<div class="form-group item_content item_card_value">
+														<label class="col-md-3 control-label">Mệnh Gía</label>
+														<div class="col-md-6">
+															<select id="txt_add_edit_item_value_card" class="form-control select2 select_normal">
+																<option value="0">Chọn Mệnh giá thẻ</option>
+																<option value="10000">10.000</option>
+																<option value="20000">20.000</option>
+																<option value="50000">50.000</option>
+																<option value="100000">100.000</option>
+																<option value="500000">500.000</option>
+																<option value="1000000">1.000.000</option>
+															</select>
+														</div>
+													</div>
+													
+													<div class="form-group item_content item_luckyspin">
+														<label class="col-md-3 control-label">Event</label>
+														<div class="col-md-6">
+															<select id="txt_add_edit_item_luckyspin" class="form-control select2 select_normal">
+																<option value="">Chọn Event</option>
+															</select>
+														</div>
+													</div>
+													
+													<div class="form-group item_content giftcode_file">
+														<label class="col-md-3 control-label">Giftcode file</label>
+														<div class="col-md-6">
+															<label for="file" style="position: relative;" class="btn yellow">Chọn file</label>
+															<input type="file" style="opacity: 0;position: absolute;top:0px;height: 44px;width: 119px" id="txt_add_edit_item_giftcode_file" />
+															<span class="txt_add_edit_item_giftcode_info"></span>
+															<p class="help-block">_ Chỉ cho phép file xlsx (Excel) <br>
+																_ Tất cả giftcode nằm trong cột A, tính bắt đầu từ A1 (Tối đa 1000
+																giftcode)<br>
+																_ Tên file
+																chỉ chứa chữ, số, dấu gạch ngang ( - ), dấu gạch dưới ( _ )</p>
+														</div>
+                                                    </div>
+                                                    
+                                                    <div class="form-group item_content form_quantity">
+														<label class="col-md-3 control-label">Số lượng</label>
+														<div class="col-md-7">
+															<input type="text" class="txt_add_edit_item_quantity form-control" name="rankQuantity" placeholder="Enter số lượng">
+															<p class="help-block">Số lượng phúc lợi</p>
+														</div>
+                                                    </div>
+
+												</div>
+											</form>
+										</div>
+									</div>
+									<div class="modal-footer">
+										<button type="button" data-dismiss="modal" class="btn btn-outline dark">Close</button>
+										<button type="button" class="btn green btn_modal_save_new">Add</button>
+										<button type="button" class="btn green btn_modal_save_update"><i class="">Save Change</button>
+									</div>
+								</div>
+                            </div>
+
+            <% include ../partials/footer %>
+            <% include ../partials/foot_of_foot %>
+                <!--PLUGIN SCRIPTS-->
+                <script src="../assets/global/plugins/moment.min.js" type="text/javascript"></script>
+                <script src="../assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.js" type="text/javascript"></script>
+                <script src="../assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
+                <script src="../assets/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js" type="text/javascript"></script>
+                <script src="../assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
+                <script src="../assets/global/plugins/clockface/js/clockface.js" type="text/javascript"></script>
+                <script src="../assets/global/plugins/bootstrap-modal/js/bootstrap-modalmanager.js" type="text/javascript"></script>
+                <script src="../assets/global/plugins/bootstrap-modal/js/bootstrap-modal.js" type="text/javascript"></script>
+                <script src="../assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js" type="text/javascript"></script>
+                <script src="../assets/global/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.js" type="text/javascript"></script>
+                <script src="../assets/global/plugins/datatables/datatables.min.js" type="text/javascript"></script>
+                <script src="../assets/global/plugins/bootstrap-select/js/bootstrap-select.min.js" type="text/javascript"></script>
+                <script src="../assets/global/plugins/typeahead/handlebars.min.js" type="text/javascript"></script>
+                <script src="../assets/global/plugins/select2/js/select2.full.min.js" type="text/javascript"></script>
+                <script src="../assets/global/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
+				<script src="../assets/global/plugins/ckeditor/ckeditor.js"></script>
+				<script src="../assets/global/plugins/jquery.soap-master/jquery.soap.js"></script>
+				<script src="../javascripts/common.min.js" type="text/javascript"></script>
+                <!--CUSTOM SCRIPTS-->
+                <script src="../javascripts/game_ranking_item.js" type="text/javascript"></script>
+                <!-- PAGE SCRIPTS -->
+</body>
+
+</html>

@@ -1,0 +1,264 @@
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+
+<head>
+    <% include ../partials/head_of_head %>
+        <!--PLUGIN STYLES-->
+        <link href="../assets/global/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/global/plugins/typeahead/typeahead.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/global/plugins/datatables/datatables.min.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/global/plugins/morris/morris.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/global/plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/global/plugins/bootstrap-modal/css/bootstrap-modal.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/global/plugins/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/global/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/global/plugins/select2/css/select2-bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/global/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/global/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/global/plugins/clockface/css/clockface.css" rel="stylesheet" type="text/css" />
+        <!--CUSTOM STYLE-->
+        <link href="../stylesheets/bet_setting.min.css" rel="stylesheet" type="text/css" />
+        <link rel="shortcut icon" href="favicon.ico" /> </head>
+
+<body class="page-container-bg-solid page-header-fixed page-sidebar-closed-hide-logo">
+    <% include ../partials/header %>
+        <!-- BEGIN HEADER & CONTENT DIVIDER -->
+        <div class="clearfix"> </div>
+        <!-- END HEADER & CONTENT DIVIDER -->
+        <!-- BEGIN CONTAINER -->
+        <div class="page-container">
+            <% include ../partials/side_bar %>
+                <!-- BEGIN CONTENT -->
+                <div class="page-content-wrapper">
+                    <!-- BEGIN CONTENT BODY -->
+                    <div class="page-content">
+                        <% include ../partials/page_title %>
+                            <!-- BEGIN PAGE BREADCRUMB -->
+                            <ul class="page-breadcrumb breadcrumb">
+                                <li>
+                                    <a href="./">Dashboard</a>
+                                    <i class="fa fa-circle"></i>
+                                </li>
+                            </ul>
+                            <div class="portlet light bordered">
+                                <div class="portlet-title">
+                                    <div class="caption font-dark">
+                                        <i class="icon-settings font-dark"></i>
+                                        <span class="caption-subject bold uppercase">Settings</span>
+                                    </div>
+                                </div>
+                                <div class="portlet-body form">
+                                    <!-- BEGIN FORM-->
+                                    <form id="main_form" action="#" class="form-horizontal" enctype="multipart/form-data">
+                                        <div class="form-body">
+                                            <div class="form-group group_bet_amount">
+                                                <label class="col-md-3 control-label">Current Amount</label>
+                                                <div class="col-md-4">
+                                                    <input type="text" class="txt_amount form-control" disabled>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <input type="button" value="Deposit" class="btn blue btn_deposit" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group bet_price_group">
+                                                <label class="col-md-3 control-label">Small bet value</label>
+                                                <div class="col-md-4">
+                                                    <input type="number" class="txt_bet_small form-control">
+                                                </div>
+                                            </div>
+                                            <div class="form-group bet_price_group">
+                                                <label class="col-md-3 control-label">Medium bet value</label>
+                                                <div class="col-md-4">
+                                                    <input type="number" class="txt_bet_medium form-control">
+                                                </div>
+                                            </div>
+                                            <div class="form-group bet_price_group">
+                                                <label class="col-md-3 control-label">Big bet value</label>
+                                                <div class="col-md-4">
+                                                    <input type="number" class="txt_bet_big form-control">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-md-3 control-label">Profit warning</label>
+                                                <div class="col-md-4">
+                                                    <input type="number" class="txt_bet_profit form-control">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-xs-3 control-label"></label>
+                                                <div class="col-xs-9">
+                                                    <input class="btn sbold green btn_submit" type="button" value="Save" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <!--confirm modal-->
+                                <div id="modal_confirm" class="modal fade modal-sm" tabindex="-1" data-width="420">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                        <h4 class="modal-title"></h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        Are you sure?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn green btn_confirm_yes">Yes</button>
+                                        <button type="button" data-dismiss="modal" class="btn btn-outline dark">No</button>
+                                    </div>
+                                </div>
+
+                                <!--modal add edit-->
+                                <div id="modal_add_edit" class="modal fade modal-scroll" tabindex="-1" data-width="70%">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                                        <h4 class="modal-title">Create New Item</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="portlet-body form">
+                                            <!-- BEGIN FORM-->
+                                            <form id="add_giftcode_form" action="#" class="form-horizontal" enctype="multipart/form-data">
+                                                <div class="form-body">
+                                                    <div class="form-group" style="display:none;">
+                                                        <label class="col-md-3 control-label">Name</label>
+                                                        <div class="col-md-4">
+                                                            <input type="text" class="txt_add_edit_item_name form-control" name="name" placeholder="Enter event name">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group" style="display:none;">
+                                                        <label class="control-label col-md-3">Start betting</label>
+                                                        <div class="col-md-4">
+                                                            <div class="input-group date form_datetime">
+                                                                <input type="text" size="16" readonly class="form-control txt_add_edit_item_date_start">
+                                                                <span class="input-group-btn">
+                                                            <button class="btn default date-set" type="button">
+                                                                <i class="fa fa-calendar"></i>
+                                                            </button>
+                                                        </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group" style="display:none;">
+                                                        <label class="control-label col-md-3">End betting</label>
+                                                        <div class="col-md-4">
+                                                            <div class="input-group date form_datetime">
+                                                                <input type="text" size="16" readonly class="form-control txt_add_edit_item_date_end">
+                                                                <span class="input-group-btn">
+                                                            <button class="btn default date-set" type="button">
+                                                                <i class="fa fa-calendar"></i>
+                                                            </button>
+                                                        </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group" style="display:none;">
+                                                        <label class="col-md-3 control-label">Match</label>
+                                                        <div class="col-md-4">
+                                                            <select id="single_select_match" class="form-control select2 select_normal">
+																<option></option>
+															</select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group" style="display:none;">
+                                                        <label class="col-md-3 control-label">Winner</label>
+                                                        <div class="col-md-4">
+                                                            <select name="winner" class="bs-select form-control input-small select_winner" data-style="">
+                                                                <option value="0" class="unknow_winner">Unknown</option>
+                                                                <option value="1" class="team1_winner"></option>
+                                                                <option value="2" class="team2_winner"></option>
+                                                                <option value="3" class="draw_winner">Draw</option>
+															</select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group" style="display:none;">
+                                                        <label class="col-md-3 control-label">Betting type</label>
+                                                        <div class="col-md-4">
+                                                            <select name="bet_type" class="bs-select form-control input-small select_bet_type" data-style="">
+                                                                <option value="1">Fix Odds</option>
+                                                                <option value="2">Estimate Odds</option>
+															</select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-md-3 control-label">Ratio</label>
+                                                        <div class="col-md-3">
+                                                            <p class="help-block help_team1"></p>
+                                                            <input type="number" name="firstTeamRatio" min=0 value="active" class="form-control txt_first_team_ratio" />
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <p class="help-block help_team2"></p>
+                                                            <input type="number" name="secondTeamRatio" min=0 value="active" class="form-control txt_second_team_ratio" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group" style="display:none;">
+                                                        <label class="col-md-3 control-label">Status</label>
+                                                        <div class="col-md-4">
+                                                            <select name="status" class="bs-select form-control input-small select_status" data-style=" btn-success">
+                                                                <option value="active">Active</option>
+                                                                <option value="inactive">Inactive</option>
+															</select>
+                                                            <input type="hidden" name="status" value="active" class="hidden_item_status" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" data-dismiss="modal" class="btn btn-outline dark">Close</button>
+                                        <button type="button" class="btn green btn_modal_save_new">Add</button>
+                                        <button type="button" class="btn green btn_modal_save_update">Save Change</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="portlet light bordered">
+                                <div class="portlet-title">
+                                    <div class="caption font-dark">
+                                        <i class="icon-speedometer font-dark"></i>
+                                        <span class="caption-subject bold uppercase">In bet matches</span>
+                                    </div>
+                                </div>
+                                <div class="portlet-body" style="position: relative;">
+                                    <button class="btn sbold green btn_refresh" style="margin-left: 10px;"> Refresh <i class="fa fa-refresh"></i></button>
+                                    <table class="table table-striped table-bordered table-hover table-checkable order-column" id="page_datatable"></table>
+                                    <div class="datatable_paging"></div>
+                                    <div class="loading_icon_inbet_match">
+                                        <img src="../images/small_loading.svg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+        </div>
+        <% include ../partials/footer %>
+            <% include ../partials/foot_of_foot %>
+                <!--PLUGIN SCRIPTS-->
+                <script src="../assets/global/plugins/moment.min.js" type="text/javascript"></script>
+                <script src="../assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.js" type="text/javascript"></script>
+                <script src="../assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
+                <script src="../assets/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js" type="text/javascript"></script>
+                <script src="../assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
+                <script src="../assets/global/plugins/clockface/js/clockface.js" type="text/javascript"></script>
+                <script src="../assets/global/plugins/bootstrap-modal/js/bootstrap-modalmanager.js" type="text/javascript"></script>
+                <script src="../assets/global/plugins/bootstrap-modal/js/bootstrap-modal.js" type="text/javascript"></script>
+                <script src="../assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js" type="text/javascript"></script>
+                <script src="../assets/global/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.js" type="text/javascript"></script>
+                <script src="../assets/global/plugins/datatables/datatables.min.js" type="text/javascript"></script>
+                <script src="../assets/global/plugins/bootstrap-select/js/bootstrap-select.min.js" type="text/javascript"></script>
+                <script src="../assets/global/plugins/typeahead/handlebars.min.js" type="text/javascript"></script>
+                <script src="../assets/global/plugins/select2/js/select2.full.min.js" type="text/javascript"></script>
+                <!--CUSTOM SCRIPTS-->
+                <script src="../javascripts/bet_setting.min.js" type="text/javascript"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js" type="text/javascript"></script>
+                <!-- PAGE SCRIPTS -->
+</body>
+
+</html>

@@ -1,0 +1,355 @@
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+
+<head>
+	<% include ../partials/head_of_head %>
+		<!--PLUGIN STYLES-->
+		<link href="../assets/global/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/global/plugins/typeahead/typeahead.css" rel="stylesheet" type="text/css" />
+
+		<!-- <link href="../assets/global/plugins/bootstrap-switch/css/bootstrap-switch.css" rel="stylesheet"> -->
+
+		<link href="../assets/global/plugins/datatables/datatables.min.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css" rel="stylesheet" type="text/css"/>
+		<link href="../assets/global/plugins/morris/morris.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/global/plugins/bootstrap-modal/css/bootstrap-modal-bs3patch.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/global/plugins/bootstrap-modal/css/bootstrap-modal.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/global/plugins/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/global/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/global/plugins/select2/css/select2-bootstrap.min.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css" rel="stylesheet" type="text/css"
+		/>
+		<link href="../assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css"
+		/>
+		<link href="../assets/global/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css" rel="stylesheet" type="text/css"
+		/>
+		<link href="../assets/global/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css"
+		/>
+		<link href="../assets/global/plugins/clockface/css/clockface.css" rel="stylesheet" type="text/css" />
+		<link href="../stylesheets/common.min.css" rel="stylesheet" type="text/css" />
+		<!--CUSTOM STYLE-->
+		<link href="../stylesheets/mission.min.css" rel="stylesheet" type="text/css" />
+		<link rel="shortcut icon" href="favicon.ico" /> </head>
+
+<body class="page-container-bg-solid page-header-fixed page-sidebar-closed-hide-logo">
+	<% include ../partials/header %>
+		<!-- BEGIN HEADER & CONTENT DIVIDER -->
+		<div class="clearfix"> </div>
+		<!-- END HEADER & CONTENT DIVIDER -->
+		<!-- BEGIN CONTAINER -->
+		<div class="page-container">
+			<% include ../partials/side_bar %>
+				<!-- BEGIN CONTENT -->
+				<div class="page-content-wrapper">
+					<!-- BEGIN CONTENT BODY -->
+					<div class="page-content">
+						<% include ../partials/page_title %>
+							<!-- BEGIN PAGE BREADCRUMB -->
+							<ul class="page-breadcrumb breadcrumb">
+								<li>
+									<a href="./">Dashboard</a>
+									<i class="fa fa-circle"></i>
+								</li>
+							</ul>
+							<div class="portlet light bordered">
+								<div class="portlet-title">
+									<div class="caption font-dark">
+										<i class="icon-settings font-dark"></i>
+										<span class="caption-subject bold uppercase">Missions</span>
+									</div>
+								</div>
+
+								<div class="portlet-body">
+									<div class="search_wrap">
+										<div class="input-group">
+											<button class="btn sbold green btn_add_new_item"> Add New
+												<i class="fa fa-plus"></i>
+											</button>
+										</div>
+										<div class="input-group">
+											<input type="text" class="search_input" />
+										</div>
+										<div class="input-group">
+											<button class="search_submit btn btn-success">Apply</button>
+											<button class="search_clear btn" style="margin-left:10px;">Clear</button>
+										</div>
+									</div>
+									<table class="table table-striped table-bordered table-hover table-checkable order-column" id="page_datatable"></table>
+									<div class="datatable_paging"></div>
+								</div>
+
+								<!--confirm modal-->
+								<div id="modal_confirm" class="modal fade modal-sm" tabindex="-1" data-width="420">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+										<h4 class="modal-title"></h4>
+									</div>
+									<div class="modal-body">
+										Are you sure?
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn green btn_confirm_yes">Yes</button>
+										<button type="button" data-dismiss="modal" class="btn btn-outline dark">No</button>
+									</div>
+								</div>
+
+								<!--modal add edit-->
+								<div id="modal_add_edit" class="modal fade modal-scroll" tabindex="-1" data-width="70%">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+										<h4 class="modal-title">Create New Item</h4>
+									</div>
+									<div class="modal-body">
+										<div class="portlet-body form">
+											<!-- BEGIN FORM-->
+											<form id="add_giftcode_form" action="#" class="form-horizontal" enctype="multipart/form-data">
+												<div class="form-body">
+													<div class="form-group">
+														<label class="col-md-3 control-label">Name</label>
+														<div class="col-md-7">
+															<input type="text" class="txt_add_edit_item_name form-control" name="name" placeholder="Enter mission name">
+															<p class="help-block">Tên (phân biệt trên adb)</p>
+														</div>
+													</div>
+													<!-- <div class="form-group">
+															<label class="col-md-3 control-label">Image</label>
+															<div class="col-md-7">
+																	<input type="text" class="txt_add_edit_item_image form-control" placeholder="Image URL">
+																	<p class="help-block">Ảnh (chưa biết cho hiện ở đâu)</p>
+															</div>
+													</div> -->
+													
+													<div class="form-group">
+														<label class="control-label col-md-3">Action</label>
+														<div class="col-md-7">
+															<select id="single_select_action" class="form-control select2">
+																<option value="1">Quay Lucky Spin</option>
+																<option value="2">Điểm danh</option>
+																<option value="3">Login game</option>
+																<option value="4">Đăng Nhập lần đầu vào game</option>
+																<option value="5">Nạp Card Mệnh Giá Thấp (10k , 20k)</option>
+																<option value="6">Chia sẻ Facebook</option>
+															</select>
+															<p class="help-block">Hành động (mục tiêu nhiệm vụ)</p>
+														</div>
+													</div>
+													<div class="form-group group_target group_share_link">
+														<label class="col-md-3 control-label">Link Share</label>
+														<div class="col-md-7">
+															<input type="text" id="link_share" class="form-control" placeholder="Enter link to share" />
+														</div>
+													</div>
+													<div class="form-group group_target group_luckyspin">
+														<label class="col-md-3 control-label">Lucky Spin</label>
+														<div class="col-md-7">
+															<select id="single_select_lucky" class="form-control select2">
+																<option></option>
+															</select>
+														</div>
+													</div>
+													<div class="form-group group_target group_auction">
+														<label class="col-md-3 control-label">Auction</label>
+														<div class="col-md-7">
+															<select id="single_select_auction" class="form-control select2">
+																<option></option>
+															</select>
+														</div>
+													</div>
+													<div class="form-group group_target group_giftcode">
+														<label class="col-md-3 control-label">Giftcode</label>
+														<div class="col-md-7">
+															<select id="single_select_giftcode" class="form-control select2">
+																<option></option>
+															</select>
+														</div>
+													</div>
+													<div class="form-group group_target group_game group_game_level">
+														<label class="col-md-3 control-label">Game</label>
+														<div class="col-md-7">
+															<select id="single_select_game" class="form-control select2">
+																<option></option>
+															</select>
+														</div>
+													</div>
+
+													<div class="form-group">
+														<label class="control-label col-md-3">Loại phần thưởng</label>
+														<div class="col-xs-3">
+															<select id="single_select_type_award" class="form-control">
+																<option value="TURN_SPIN">Turn Spin</option>
+																<option value="XU">Xu</option>
+																<option value="GIFTCODE">Giftcode</option>
+															</select>
+															<p class="help-block">Chọn loại phần thưởng khi hoàn thành</p>
+														</div>
+														<div class="form-group type_award giftcode_file">
+															<div class="col-md-6">
+																<label for="file" style="position: relative;" class="btn yellow">Chọn file</label>
+																<input type="file" style="opacity: 0;position: absolute;top:0px;height: 44px;width: 119px" id="txt_add_edit_giftcode_file" />
+																<span class="txt_add_edit_giftcode_info"></span>
+																<p class="help-block">_ Chỉ cho phép file xlsx (Excel) <br>
+																	_ Tất cả giftcode nằm trong cột A, tính bắt đầu từ A1 (Tối đa 1000
+																	giftcode)<br>
+																	_ Tên file
+																	chỉ chứa chữ, số, dấu gạch ngang ( - ), dấu gạch dưới ( _ )</p>
+															</div>
+														</div>
+														<!-- <div class="col-xs-4 type_award file_giftcode">
+															<input id="file_giftcode" type="file" min="1">
+															<p class="help-block">
+																<span style="color:#36c6d3">A: </span> code , 
+																<span style="color:#36c6d3">B:</span> serial, 
+																<span style="color:#36c6d3">C:</span> Giftcode expired date
+															</p>
+														</div> -->
+														<div class="col-xs-4 type_award turn_spin_award">
+															<select id="select_spin_award" class="form-control select2">
+																<option value="0">Chọn Spin</option>
+															</select>
+														</div>
+													</div>
+
+													<div class="form-group">
+														<label class="control-label col-md-3">Loại hạn mức</label>
+														<div class="col-xs-2">
+															<select id="single_select_limit" class="form-control">
+																<option value="">Unlimited</option>
+																<option value="DAY">Day</option>
+																<option value="EVENT">Event</option>
+															</select>
+														</div>
+														<label class="control-label col-md-2">Giá Trị Hạn Mức</label>
+														<div class="col-xs-3">
+															<input type="number" min="1" class="value_limit_award form-control" name="limit_value" value=1>
+														</div>
+													</div>
+
+													<div class="form-group">
+														<label class="col-md-3 control-label">Award</label>
+														<div class="col-md-7">
+															<input type="number" min="1" class="txt_add_edit_item_award form-control" name="award" value=1>
+															<p class="help-block">Giá trị (phần thưởng khi hoàn thành nhiệm vụ)</p>
+														</div>
+													</div>
+
+													<div class="form-group group_target group_fb">
+														<label class="col-md-3 control-label">Facebook value</label>
+														<div class="col-md-7">
+															<input type="text" class="txt_add_edit_item_fb_value form-control" value="" />
+														</div>
+													</div>
+													<div class="form-group group_target group_game_level">
+														<label class="col-md-3 control-label">Game level - server</label>
+														<div class="col-md-7">
+															<input type="text" class="txt_add_edit_item_game_value form-control" value="" />
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="col-md-3 control-label">Description</label>
+														<div class="col-md-7">
+															<textarea class="txt_add_edit_item_desc form-control" name="description" placeholder="Game description"></textarea>
+															<p class="help-block">Mô tả (hiện trên client)</p>
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="col-md-3 control-label">Daily</label>
+														<div class="col-xs-8">
+															<select name="status" class="bs-select form-control input-small select_daily">
+																<option value=false>Không</option>
+																<option value=true>Có</option>
+															</select>
+															<input type="hidden" name="daily" value=true class="hidden_item_daily" />
+															<p class="help-block">Lặp lại (có/không lặp lại theo ngày)</p>
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="control-label col-md-3">From date</label>
+														<div class="col-md-7">
+															<div class="input-group date form_datetime" style="max-width:100% !important;border: 1px lightblue solid;">
+																<input type="text" size="16" readonly class="form-control txt_add_edit_item_from_date">
+																<span class="input-group-btn">
+																	<button class="btn default date-set" type="button">
+																		<i class="fa fa-calendar"></i>
+																	</button>
+																</span>
+															</div>
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="control-label col-md-3">To date</label>
+														<div class="col-md-7">
+															<div class="input-group date form_datetime" style="max-width:100% !important;border: 1px lightblue solid;">
+																<input type="text" size="16" readonly class="form-control txt_add_edit_item_to_date">
+																<span class="input-group-btn">
+																	<button class="btn default date-set" type="button">
+																		<i class="fa fa-calendar"></i>
+																	</button>
+																</span>
+															</div>
+														</div>
+													</div>
+													<div class="form-group">
+														<label class="col-md-3 control-label">Trạng Thái</label>
+														<div class="col-md-6">
+															<select name="status" class="bs-select form-control input-medium select_status" data-style=" btn-success">
+																<option value="active">Hoạt Động</option>
+																<option value="inactive">Không Hoạt Động</option>
+															</select>
+															
+															<input type="hidden" name="status" value="active" class="hidden_item_status" />
+															<span class="col-md-3" style="float:right;">  
+																<label class="control-label">Nổi Bật :</label>
+
+																<!-- checkbox nổi bật -->
+																<input id="highlights" type="checkbox" name="my-checkbox" data-on-text="ON" data-off-text="OFF"
+																 data-on-color="success" data-off-color="success">
+															</span>
+															<p class="help-block">Trạng thái (ẩn/hiện trên client)</p>
+															
+														</div>
+													</div>
+												</div>
+											</form>
+										</div>
+									</div>
+									<div class="modal-footer">
+										<button type="button" data-dismiss="modal" class="btn btn-outline dark">Close</button>
+										<button type="button" class="btn green btn_modal_save_new">Add</button>
+										<button type="button" class="btn green btn_modal_save_update">Save Change</button>
+									</div>
+								</div>
+							</div>
+					</div>
+				</div>
+		</div>
+		
+		<% include ../partials/footer %>
+			<% include ../partials/foot_of_foot %>
+				<!--PLUGIN SCRIPTS-->
+				<script src="../assets/global/plugins/moment.min.js" type="text/javascript"></script>
+				<script src="../assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.js" type="text/javascript"></script>
+				<script src="../assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
+				<script src="../assets/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js" type="text/javascript"></script>
+				<script src="../assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
+				<script src="../assets/global/plugins/clockface/js/clockface.js" type="text/javascript"></script>
+				<script src="../assets/global/plugins/bootstrap-modal/js/bootstrap-modalmanager.js" type="text/javascript"></script>
+				<script src="../assets/global/plugins/bootstrap-modal/js/bootstrap-modal.js" type="text/javascript"></script>
+				<script src="../assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js" type="text/javascript"></script>
+				<script src="../assets/global/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.js" type="text/javascript"></script>
+				<script src="../assets/global/plugins/datatables/datatables.min.js" type="text/javascript"></script>
+				<script src="../assets/global/plugins/bootstrap-select/js/bootstrap-select.min.js" type="text/javascript"></script>
+				<script src="../assets/global/plugins/typeahead/handlebars.min.js" type="text/javascript"></script>
+				<script src="../assets/global/plugins/select2/js/select2.full.min.js" type="text/javascript"></script>
+
+				<!-- <script src="../assets/global/plugins/bootstrap-switch/js/bootstrap-switch.js" rel="stylesheet"></script> -->
+
+				<!--CUSTOM SCRIPTS-->
+				<script src="../javascripts/mission.js" type="text/javascript"></script>
+				<!-- PAGE SCRIPTS -->
+</body>
+
+</html>

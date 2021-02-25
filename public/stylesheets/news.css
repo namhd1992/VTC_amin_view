@@ -1,0 +1,41 @@
+.mt-list-item {
+    text-align: left;
+}
+
+#page_datatable td {
+    padding: 0;
+}
+
+.mt-element-list .list-news.ext-1 .list-thumb {
+    height: 50px;
+}
+
+.mt-element-list .list-news.ext-1.mt-list-container ul>.mt-list-item {
+    padding: 5px;
+}
+
+.mt-element-list .list-news.mt-list-container ul>.mt-list-item>.list-icon-container {
+    background: rgba(0, 0, 0, 0.5);
+    height: 100%;
+    margin: 0;
+    padding: 20px 5px 10px 10px;
+    top: 0;
+    right: 0;
+    text-align: center;
+    display: none;
+}
+
+.mt-element-list .list-news.ext-1.mt-list-container ul>.mt-list-item>.list-item-content div {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.txt_add_edit_item_name {
+    width: 100%;
+    max-width: 100%;
+}
+
+.mt-element-list .list-news.mt-list-container ul>.mt-list-item>.list-icon-container a {
+    color: white;
+}

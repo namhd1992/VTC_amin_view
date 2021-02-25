@@ -1,0 +1,122 @@
+table#sample_2 {
+    margin: 0 auto;
+    width: 100%;
+    clear: both;
+    border-collapse: collapse;
+    table-layout: fixed;
+    word-wrap: break-word;
+}
+
+.bootstrap-tagsinput .tag {
+    line-height: 30px;
+}
+
+table.dataTable thead .sorting_asc:after {
+    content: "";
+}
+
+table.dataTable thead .sorting_desc:after {
+    content: "";
+}
+
+table.dataTable thead .sorting:after {
+    content: "";
+}
+
+table.table-bordered.dataTable th,
+table.table-bordered.dataTable td {
+    vertical-align: middle;
+}
+
+table.table-bordered.dataTable .mid_center {
+    vertical-align: middle;
+    text-align: center;
+}
+
+table.table-bordered.dataTable td .bootstrap-tagsinput {
+    max-height: 65px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 100%;
+    width: 100%;
+    border: none;
+    background: none;
+    box-shadow: none;
+    margin-bottom: 0px;
+}
+
+.status_text_active {
+    color: #26c281;
+}
+
+.status_text_inactive {
+    color: red;
+}
+
+#modal_add_edit .current_tags {
+    background: none;
+    box-shadow: none;
+    border: none;
+    word-wrap: break-word;
+}
+
+#modal_add_edit .current_packages {
+    background: none;
+    box-shadow: none;
+    border: none;
+    word-wrap: break-word;
+}
+
+#modal_add_edit .modal-body {
+    overflow: visible !important;
+}
+
+table.dataTable.no-footer {
+    border-bottom-color: #e7ecf1 !important;
+}
+
+#modal_add_edit_channel {
+    overflow: visible !important;
+}
+
+.select2-container--bootstrap .select2-dropdown {
+    z-index: 20000 !important;
+}
+
+.list {
+    background-color: #478BFF;
+    text-align: center;
+    cursor: pointer;
+    font-family: Geneva, Arial, Helvetica, sans-serif;
+    border: 1px solid gray;
+}
+
+#items .ui-selected {
+    background: red;
+    color: white;
+    font-weight: bold;
+}
+
+#items {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+#items li {
+    float: left;
+    margin: 5px;
+    padding: 5px;
+    height: 30px;
+}
+
+.highlight {
+    overflow: hidden;
+    font-weight: bold;
+    background-color: lightblue;
+    height: 30px;
+    width: 100px;
+    padding: 5px;
+    white-space: nowrap;
+}
